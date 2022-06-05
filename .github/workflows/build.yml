@@ -30,11 +30,13 @@ jobs:
       run: |
         source ./scripts/provision.sh  ${{ matrix.board }}
         make
+        pwd
+        ls -l
     - name: Upload binary
       uses: actions/upload-artifact@v3
       with:
         name: app
-        path: ./*.apk
+        path: ./*.bin
         
   # Builds with DFU_UPDATE_BUILD=1        
   build_dfu:
