@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.board }}
-        path: ~/espruino_*.bin
+        path: ./espruino_*.bin
           
   # Builds with DFU_UPDATE_BUILD=1        
   build_dfu:
