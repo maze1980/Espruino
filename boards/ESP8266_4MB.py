@@ -25,11 +25,11 @@ info = {
    'libraries' : [
      'NET',
      'TELNET',
-     'GRAPHICS',
-     'CRYPTO',
+     #'GRAPHICS',
+     #'CRYPTO',
      'NEOPIXEL',
-     #'FILESYSTEM',
-     #'FLASHFS'
+     'FILESYSTEM',
+     'FLASHFS'
    ],
    'makefile' : [
      'FLASH_4MB=1',
