@@ -35,9 +35,9 @@ jobs:
     - name: Upload binary
       uses: actions/upload-artifact@v3
       with:
-        name: app
-        path: ./*.bin
-        
+        name: ${{ matrix.board }}
+        path: ~/espruino_*.bin
+          
   # Builds with DFU_UPDATE_BUILD=1        
   build_dfu:
     runs-on: ubuntu-20.04
