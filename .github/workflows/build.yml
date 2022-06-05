@@ -77,7 +77,7 @@ jobs:
         RELEASE: 1
         PAD_FOR_BOOTLOADER: 1
         BOARD: ${{ matrix.board }} 
-        UPLOADTOKEN: ${{ secrets.UPLOADTOKEN }}  
+        UPLOADTOKEN: ${{ secrets.GITHUB_TOKEN }}  
       run: |
         source ./scripts/provision.sh  ${{ matrix.board }}
         make
