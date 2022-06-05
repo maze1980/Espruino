@@ -198,8 +198,10 @@ USE_WIZNET_W5100=1
 endif
 else ifeq ($(FAMILY),ESP8266)
 USE_ESP8266=1
+NO_FOTA=1
 else ifeq ($(FAMILY),ESP32)
 USE_ESP32=1
+NO_FOTA=1
 else ifdef EMW3165
 USE_WICED=1
 else ifdef CC3000
