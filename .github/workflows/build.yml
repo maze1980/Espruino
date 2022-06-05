@@ -27,11 +27,14 @@ jobs:
         TRAVIS: 1
         RELEASE: 1
         BOARD: ${{ matrix.board }} 
-        UPLOADTOKEN: ${{ secrets.GITHUB_TOKEN }}  
       run: |
         source ./scripts/provision.sh  ${{ matrix.board }}
         make
-        ./scripts/ci_upload.sh
+    - name: Upload binary
+      uses: actions/upload-artifact@v3
+      with:
+        name: app
+        path: ./*.apk
         
   # Builds with DFU_UPDATE_BUILD=1        
   build_dfu:
@@ -52,11 +55,9 @@ jobs:
         RELEASE: 1
         DFU_UPDATE_BUILD: 1
         BOARD: ${{ matrix.board }} 
-        UPLOADTOKEN: ${{ secrets.GITHUB_TOKEN }}  
       run: |
         source ./scripts/provision.sh  ${{ matrix.board }}
-        make
-        ./scripts/ci_upload.sh       
+        make  
        
   # Builds with PAD_FOR_BOOTLOADER=1
   build_padded:
@@ -77,12 +78,9 @@ jobs:
         RELEASE: 1
         PAD_FOR_BOOTLOADER: 1
         BOARD: ${{ matrix.board }} 
-        UPLOADTOKEN: ${{ secrets.GITHUB_TOKEN }}  
       run: |
         source ./scripts/provision.sh  ${{ matrix.board }}
         make
-        ./scripts/ci_upload.sh 
- 
  
 # Disable doc building for now 
 #  docs:
