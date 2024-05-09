@@ -22,7 +22,7 @@
 #   docker cp container_name:espruino/espruino_2v00_pico_1r3.bin ./
 #
 
-FROM python:3.12.0rc2-slim
+FROM python:3.13.0b1-slim
 
 WORKDIR /espruino
 
